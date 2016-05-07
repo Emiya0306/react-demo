@@ -1,0 +1,29 @@
+{
+  "name": "article",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "string"
+    },
+    "publishDate": {
+      "type": "date"
+    },
+    "editDate": {
+      "type": "date"
+    },
+    "deleteDate": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

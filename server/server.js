@@ -1,7 +1,18 @@
 var loopback = require('loopback');
 var boot = require('loopback-boot');
+var log4js = require('log4js');
+var dotenv = require('dotenv').config();
 
-var app = module.exports = loopback();
+// set log4js output to file
+log4js.loadAppender('file');
+
+// replace console and make console output to system.log
+log4js.addAppender(log4js.appenders.file('system.log'), 'console');
+log4js.getLogger('console').setLevel(process.env.LogLevel);
+log4js.replaceConsole();
+
+//get loopback application
+var app = loopback();
 
 app.start = function() {
   // start the web server
@@ -25,3 +36,5 @@ boot(app, __dirname, function(err) {
   if (require.main === module)
     app.start();
 });
+
+module.exports = app;
