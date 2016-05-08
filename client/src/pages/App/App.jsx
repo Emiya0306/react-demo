@@ -8,17 +8,21 @@ export default class Home extends Component {
   render() {
     const styles = require('./app.scss');
 
+    const logo = { name:"Home", description:"", link:"/" };
+
     const leftMenus = [
       { name:"Home", description:"", link:"/" },
-      { name:"About", description:"", link:"/about" },
+      { name:"About", description:"", link:"/about" }
+    ];
+
+    const rightMenus = [
       { name:"Register", description:"", link:"/register" },
-      { name:"Login", description:"", link:"/login" },
-      { name:"NotFound", description:"", link:"/notFound" },
+      { name:"Login", description:"", link:"/login" }
     ];
 
     return (
       <div>
-        <NavigationBar leftMenus={leftMenus} />
+        <NavigationBar logo={logo} leftMenus={leftMenus} rightMenus={rightMenus} />
         <div>
           { this.props.children }
         </div>

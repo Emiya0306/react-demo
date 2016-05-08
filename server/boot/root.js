@@ -17,7 +17,7 @@ module.exports = function(server) {
 
   server.use(express.static(path.join(clientPath)));
 
-  router.get('/', setupIndexPage);
+  router.get('*', setupIndexPage);
 
   server.use(router);
 };

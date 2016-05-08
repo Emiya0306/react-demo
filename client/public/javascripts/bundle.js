@@ -25748,12 +25748,16 @@
 	    value: function render() {
 	      var styles = __webpack_require__(236);
 
-	      var leftMenus = [{ name: "Home", description: "", link: "/" }, { name: "About", description: "", link: "/about" }, { name: "Register", description: "", link: "/register" }, { name: "Login", description: "", link: "/login" }, { name: "NotFound", description: "", link: "/notFound" }];
+	      var logo = { name: "Home", description: "", link: "/" };
+
+	      var leftMenus = [{ name: "Home", description: "", link: "/" }, { name: "About", description: "", link: "/about" }];
+
+	      var rightMenus = [{ name: "Register", description: "", link: "/register" }, { name: "Login", description: "", link: "/login" }];
 
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_bootstrapDefaultHeaderBar2.default, { leftMenus: leftMenus }),
+	        _react2.default.createElement(_bootstrapDefaultHeaderBar2.default, { logo: logo, leftMenus: leftMenus, rightMenus: rightMenus }),
 	        _react2.default.createElement(
 	          'div',
 	          null,
@@ -25787,6 +25791,8 @@
 
 	var _reactRouter = __webpack_require__(168);
 
+	__webpack_require__(232);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25808,13 +25814,15 @@
 	    key: 'render',
 	    value: function render() {
 	      var _props = this.props;
+	      var skin = _props.skin;
+	      var logo = _props.logo;
 	      var leftMenus = _props.leftMenus;
 	      var rightMenus = _props.rightMenus;
 
-	      var styles = __webpack_require__(232);
+	      var skinValue = skin || 'default';
 	      return _react2.default.createElement(
 	        'nav',
-	        { className: 'navbar navbar-default' },
+	        { className: "navbar App__navbar " + skinValue },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'container-fluid' },
@@ -25823,8 +25831,8 @@
 	            { className: 'navbar-header' },
 	            _react2.default.createElement(
 	              'a',
-	              { className: 'navbar-brand', href: '#' },
-	              'Brand'
+	              { className: 'navbar-brand', href: logo.link },
+	              logo.name
 	            )
 	          ),
 	          _react2.default.createElement(
@@ -25834,6 +25842,11 @@
 	              'ul',
 	              { className: 'nav navbar-nav' },
 	              this._forEachMenuItem(leftMenus)
+	            ),
+	            _react2.default.createElement(
+	              'ul',
+	              { className: 'nav navbar-nav navbar-right' },
+	              this._forEachMenuItem(rightMenus)
 	            )
 	          )
 	        )
@@ -25860,6 +25873,8 @@
 	}(_react.Component);
 
 	BootstrapDefaultHeaderBar.propTypes = {
+	  skin: _react.PropTypes.string,
+	  logo: _react.PropTypes.object,
 	  leftMenus: _react.PropTypes.array,
 	  rightMenus: _react.PropTypes.array
 	};
@@ -25881,8 +25896,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./bootstrap-default-header-bar.scss", function() {
-				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./bootstrap-default-header-bar.scss");
+			module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./../../../../../node_modules/autoprefixer-loader/index.js?browsers=last 2 version!./bootstrap-default-header-bar.scss", function() {
+				var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/sass-loader/index.js!./../../../../../node_modules/autoprefixer-loader/index.js?browsers=last 2 version!./bootstrap-default-header-bar.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -26229,8 +26244,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./app.scss", function() {
-				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./app.scss");
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./../../../../node_modules/autoprefixer-loader/index.js?browsers=last 2 version!./app.scss", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./../../../../node_modules/autoprefixer-loader/index.js?browsers=last 2 version!./app.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -26329,8 +26344,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./about.scss", function() {
-				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./about.scss");
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./../../../../node_modules/autoprefixer-loader/index.js?browsers=last 2 version!./about.scss", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./../../../../node_modules/autoprefixer-loader/index.js?browsers=last 2 version!./about.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -26425,8 +26440,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./home.scss", function() {
-				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./home.scss");
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./../../../../node_modules/autoprefixer-loader/index.js?browsers=last 2 version!./home.scss", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./../../../../node_modules/autoprefixer-loader/index.js?browsers=last 2 version!./home.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -26524,8 +26539,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./register.scss", function() {
-				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./register.scss");
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./../../../../node_modules/autoprefixer-loader/index.js?browsers=last 2 version!./register.scss", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./../../../../node_modules/autoprefixer-loader/index.js?browsers=last 2 version!./register.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -26623,8 +26638,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./login.scss", function() {
-				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./login.scss");
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./../../../../node_modules/autoprefixer-loader/index.js?browsers=last 2 version!./login.scss", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./../../../../node_modules/autoprefixer-loader/index.js?browsers=last 2 version!./login.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -26730,8 +26745,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./notFound.scss", function() {
-				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./notFound.scss");
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./../../../../node_modules/autoprefixer-loader/index.js?browsers=last 2 version!./notFound.scss", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./../../../../node_modules/autoprefixer-loader/index.js?browsers=last 2 version!./notFound.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
