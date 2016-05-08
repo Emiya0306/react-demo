@@ -1,11 +1,15 @@
+import App from './App/app.jsx';
 import About from './About/about.jsx';
 import Home from './Home/home.jsx';
+import Register from './Register/register.jsx';
+import Login from './Login/login.jsx';
 import NotFound from './NotFound/notFound.jsx';
-import Index from './Index/index.jsx';
 
 export {
+  App,
   About,
   Home,
-  NotFound,
-  Index
+  Register,
+  Login,
+  NotFound
 };
