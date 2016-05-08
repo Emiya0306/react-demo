@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react';
+import { Link } from 'react-router'
 
 export default class NotFound extends Component {
   static propTypes = {
@@ -14,6 +15,7 @@ export default class NotFound extends Component {
     return (
       <div>
         NotFound
+        <Link to="/">home</Link>
       </div>
     );
   }

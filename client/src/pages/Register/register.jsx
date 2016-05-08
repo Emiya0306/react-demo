@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react';
+import { Link } from 'react-router';
 
 class Register extends Component {
   static propTypes = {
@@ -10,6 +11,7 @@ class Register extends Component {
     return (
       <div>
         Register
+        <Link to="/">home</Link>
       </div>
     );
   }

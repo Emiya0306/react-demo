@@ -11,6 +11,8 @@ export default class Home extends Component {
     const leftMenus = [
       { name:"Home", description:"", link:"/" },
       { name:"About", description:"", link:"/about" },
+      { name:"Register", description:"", link:"/register" },
+      { name:"Login", description:"", link:"/login" },
       { name:"NotFound", description:"", link:"/notFound" },
     ];
 

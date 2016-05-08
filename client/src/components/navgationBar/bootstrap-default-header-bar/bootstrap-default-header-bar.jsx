@@ -11,19 +11,28 @@ class BootstrapDefaultHeaderBar extends Component {
     const {leftMenus, rightMenus} = this.props;
     const styles = require('./bootstrap-default-header-bar.scss');
     return (
-      <div>
-        { this._forEachMenuItem(leftMenus) }
-      </div>
+      <nav className="navbar navbar-default">
+        <div className="container-fluid">
+          <div className="navbar-header">
+            <a className="navbar-brand" href="#">Brand</a>
+          </div>
+          <div className="collapse navbar-collapse">
+            <ul className="nav navbar-nav">
+              { this._forEachMenuItem(leftMenus) }
+            </ul>
+          </div>
+        </div>
+      </nav>
     );
   }
 
   _forEachMenuItem(menus) {
     return menus.map((menu, key) =>
-
-      <Link key={key} to={menu.link}>
-        {menu.name}
-      </Link>
-
+      <li key={key}>
+        <Link to={menu.link}>
+          {menu.name}
+        </Link>
+      </li>
     );
   }
 }

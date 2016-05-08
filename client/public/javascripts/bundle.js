@@ -70,6 +70,7 @@
 	    _react2.default.createElement(_reactRouter.Route, { path: '/about', component: _index.About })
 	  ),
 	  _react2.default.createElement(_reactRouter.Route, { path: '/register', component: _index.Register }),
+	  _react2.default.createElement(_reactRouter.Route, { path: '/login', component: _index.Login }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '*', component: _index.NotFound })
 	), document.getElementById('app'));
 
@@ -25684,15 +25685,15 @@
 
 	var _home2 = _interopRequireDefault(_home);
 
-	var _register = __webpack_require__(247);
+	var _register = __webpack_require__(244);
 
 	var _register2 = _interopRequireDefault(_register);
 
-	var _login = __webpack_require__(250);
+	var _login = __webpack_require__(247);
 
 	var _login2 = _interopRequireDefault(_login);
 
-	var _notFound = __webpack_require__(244);
+	var _notFound = __webpack_require__(250);
 
 	var _notFound2 = _interopRequireDefault(_notFound);
 
@@ -25747,7 +25748,7 @@
 	    value: function render() {
 	      var styles = __webpack_require__(236);
 
-	      var leftMenus = [{ name: "Home", description: "", link: "/" }, { name: "About", description: "", link: "/about" }, { name: "NotFound", description: "", link: "/notFound" }];
+	      var leftMenus = [{ name: "Home", description: "", link: "/" }, { name: "About", description: "", link: "/about" }, { name: "Register", description: "", link: "/register" }, { name: "Login", description: "", link: "/login" }, { name: "NotFound", description: "", link: "/notFound" }];
 
 	      return _react2.default.createElement(
 	        'div',
@@ -25812,9 +25813,30 @@
 
 	      var styles = __webpack_require__(232);
 	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        this._forEachMenuItem(leftMenus)
+	        'nav',
+	        { className: 'navbar navbar-default' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'container-fluid' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'navbar-header' },
+	            _react2.default.createElement(
+	              'a',
+	              { className: 'navbar-brand', href: '#' },
+	              'Brand'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'collapse navbar-collapse' },
+	            _react2.default.createElement(
+	              'ul',
+	              { className: 'nav navbar-nav' },
+	              this._forEachMenuItem(leftMenus)
+	            )
+	          )
+	        )
 	      );
 	    }
 	  }, {
@@ -25822,9 +25844,13 @@
 	    value: function _forEachMenuItem(menus) {
 	      return menus.map(function (menu, key) {
 	        return _react2.default.createElement(
-	          _reactRouter.Link,
-	          { key: key, to: menu.link },
-	          menu.name
+	          'li',
+	          { key: key },
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: menu.link },
+	            menu.name
+	          )
 	        );
 	      });
 	    }
@@ -26439,6 +26465,8 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRouter = __webpack_require__(168);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26447,41 +26475,38 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var NotFound = function (_Component) {
-	  _inherits(NotFound, _Component);
+	var Register = function (_Component) {
+	  _inherits(Register, _Component);
 
-	  function NotFound() {
-	    _classCallCheck(this, NotFound);
+	  function Register() {
+	    _classCallCheck(this, Register);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(NotFound).apply(this, arguments));
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Register).apply(this, arguments));
 	  }
 
-	  _createClass(NotFound, [{
+	  _createClass(Register, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props;
-	      var user = _props.user;
-	      var logout = _props.logout;
-
 	      var styles = __webpack_require__(245);
 
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        'NotFound'
+	        'Register',
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: '/' },
+	          'home'
+	        )
 	      );
 	    }
 	  }]);
 
-	  return NotFound;
+	  return Register;
 	}(_react.Component);
 
-	NotFound.propTypes = {
-	  user: _react.PropTypes.object,
-	  login: _react.PropTypes.func,
-	  logout: _react.PropTypes.func
-	};
-	exports.default = NotFound;
+	Register.propTypes = {};
+	exports.default = Register;
 
 /***/ },
 /* 245 */
@@ -26499,8 +26524,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./notFound.scss", function() {
-				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./notFound.scss");
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./register.scss", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./register.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -26539,6 +26564,8 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRouter = __webpack_require__(168);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26547,16 +26574,16 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Register = function (_Component) {
-	  _inherits(Register, _Component);
+	var Login = function (_Component) {
+	  _inherits(Login, _Component);
 
-	  function Register() {
-	    _classCallCheck(this, Register);
+	  function Login() {
+	    _classCallCheck(this, Login);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Register).apply(this, arguments));
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Login).apply(this, arguments));
 	  }
 
-	  _createClass(Register, [{
+	  _createClass(Login, [{
 	    key: 'render',
 	    value: function render() {
 	      var styles = __webpack_require__(248);
@@ -26564,16 +26591,21 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        'Register'
+	        'Login',
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: '/' },
+	          'home'
+	        )
 	      );
 	    }
 	  }]);
 
-	  return Register;
+	  return Login;
 	}(_react.Component);
 
-	Register.propTypes = {};
-	exports.default = Register;
+	Login.propTypes = {};
+	exports.default = Login;
 
 /***/ },
 /* 248 */
@@ -26591,8 +26623,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./register.scss", function() {
-				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./register.scss");
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./login.scss", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./login.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -26631,6 +26663,8 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRouter = __webpack_require__(168);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26639,33 +26673,46 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Login = function (_Component) {
-	  _inherits(Login, _Component);
+	var NotFound = function (_Component) {
+	  _inherits(NotFound, _Component);
 
-	  function Login() {
-	    _classCallCheck(this, Login);
+	  function NotFound() {
+	    _classCallCheck(this, NotFound);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Login).apply(this, arguments));
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(NotFound).apply(this, arguments));
 	  }
 
-	  _createClass(Login, [{
+	  _createClass(NotFound, [{
 	    key: 'render',
 	    value: function render() {
+	      var _props = this.props;
+	      var user = _props.user;
+	      var logout = _props.logout;
+
 	      var styles = __webpack_require__(251);
 
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        'Login'
+	        'NotFound',
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: '/' },
+	          'home'
+	        )
 	      );
 	    }
 	  }]);
 
-	  return Login;
+	  return NotFound;
 	}(_react.Component);
 
-	Login.propTypes = {};
-	exports.default = Login;
+	NotFound.propTypes = {
+	  user: _react.PropTypes.object,
+	  login: _react.PropTypes.func,
+	  logout: _react.PropTypes.func
+	};
+	exports.default = NotFound;
 
 /***/ },
 /* 251 */
@@ -26683,8 +26730,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./login.scss", function() {
-				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./login.scss");
+			module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./notFound.scss", function() {
+				var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/sass-loader/index.js!./notFound.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});

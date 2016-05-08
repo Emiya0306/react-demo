@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, Link, IndexLink, browserHistory } from 'react-router'
-import { App, About, Home, Register, Login, NotFound } from './pages/index.jsx'
+import { Router, Route, IndexRoute, Link, IndexLink, browserHistory } from 'react-router';
+import { App, About, Home, Register, Login, NotFound } from './pages/index.jsx';
+
 
 ReactDOM.render((
   <Router history={browserHistory}>
@@ -16,6 +17,7 @@ ReactDOM.render((
 
     {/* Auth页面 */}
     <Route path="/register" component={Register} />
+    <Route path="/login" component={Login} />
 
     {/* Error页面 */}
     <Route path="*" component={NotFound}/>
