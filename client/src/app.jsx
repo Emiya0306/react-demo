@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, Link, IndexLink, browserHistory } from 'react-router';
 import { App, About, Home, Register, Login, NotFound } from './pages/index.jsx';
-
+import './app.scss';
 
 ReactDOM.render((
   <Router history={browserHistory}>

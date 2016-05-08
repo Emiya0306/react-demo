@@ -58,6 +58,8 @@
 
 	var _index = __webpack_require__(229);
 
+	__webpack_require__(253);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	_reactDom2.default.render(_react2.default.createElement(
@@ -25757,7 +25759,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_bootstrapDefaultHeaderBar2.default, { logo: logo, leftMenus: leftMenus, rightMenus: rightMenus }),
+	        _react2.default.createElement(_bootstrapDefaultHeaderBar2.default, { skin: 'bilibili', logo: logo, leftMenus: leftMenus, rightMenus: rightMenus }),
 	        _react2.default.createElement(
 	          'div',
 	          null,
@@ -25825,7 +25827,7 @@
 	        { className: "navbar App__navbar " + skinValue },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'container-fluid' },
+	          { className: 'container App__navbar--container' },
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'navbar-header' },
@@ -25849,7 +25851,10 @@
 	              this._forEachMenuItem(rightMenus)
 	            )
 	          )
-	        )
+	        ),
+	        _react2.default.createElement('div', { className: 'App__navbar--background',
+	          style: { backgroundImage: "url('http://i0.hdslb.com/group1/M00/B7/39/oYYBAFcsTcaAZIxsAAEhdDXQXEk973.jpg')" } }),
+	        _react2.default.createElement('div', { className: 'App__navbar--mask' })
 	      );
 	    }
 	  }, {
@@ -25915,7 +25920,7 @@
 
 
 	// module
-	exports.push([module.id, "", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\n/* 仅仅在bilibili皮肤下显示*/\n.App__navbar--mask {\n  display: none; }\n\n.App__navbar--background {\n  display: none; }\n\n.bilibili.App__navbar {\n  position: relative;\n  border: 0;\n  border-radius: 0;\n  margin-bottom: 0;\n  background: rgba(255, 255, 255, 0.4);\n  overflow: hidden; }\n\n.bilibili .App__navbar--container {\n  position: relative;\n  z-index: 3; }\n\n.bilibili .App__navbar--mask {\n  position: absolute;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  display: block;\n  background: rgba(255, 255, 255, 0.4);\n  z-index: 2; }\n\n.bilibili .App__navbar--background {\n  position: absolute;\n  top: -10px;\n  left: -20px;\n  width: calc(100% + 40px);\n  height: 200%;\n  background-repeat: no-repeat;\n  background-position-x: center;\n  background-position-y: 0;\n  -webkit-filter: blur(5px);\n  filter: blur(5px);\n  display: block;\n  z-index: 1; }\n", ""]);
 
 	// exports
 
@@ -26765,6 +26770,46 @@
 
 	// module
 	exports.push([module.id, "", ""]);
+
+	// exports
+
+
+/***/ },
+/* 253 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(254);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(235)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./../../node_modules/autoprefixer-loader/index.js?browsers=last 2 version!./app.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./../../node_modules/autoprefixer-loader/index.js?browsers=last 2 version!./app.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 254 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(234)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "#app {\n  min-height: 100vh; }\n", ""]);
 
 	// exports
 

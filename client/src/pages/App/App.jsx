@@ -22,7 +22,7 @@ export default class Home extends Component {
 
     return (
       <div>
-        <NavigationBar logo={logo} leftMenus={leftMenus} rightMenus={rightMenus} />
+        <NavigationBar skin="bilibili" logo={logo} leftMenus={leftMenus} rightMenus={rightMenus} />
         <div>
           { this.props.children }
         </div>

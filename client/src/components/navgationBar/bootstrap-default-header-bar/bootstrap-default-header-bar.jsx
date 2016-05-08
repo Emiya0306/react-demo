@@ -16,7 +16,7 @@ class BootstrapDefaultHeaderBar extends Component {
     return (
       <nav className={ "navbar App__navbar " + skinValue }>
         {/* 导航条本体 */}
-        <div className="container-fluid">
+        <div className="container App__navbar--container">
 
           {/* 导航条Logo */}
           <div className="navbar-header">
@@ -39,6 +39,10 @@ class BootstrapDefaultHeaderBar extends Component {
           </div>
 
         </div>
+        <div className="App__navbar--background"
+             style={{ backgroundImage: "url('http://i0.hdslb.com/group1/M00/B7/39/oYYBAFcsTcaAZIxsAAEhdDXQXEk973.jpg')" }}>
+        </div>
+        <div className="App__navbar--mask"></div>
       </nav>
     );
   }
