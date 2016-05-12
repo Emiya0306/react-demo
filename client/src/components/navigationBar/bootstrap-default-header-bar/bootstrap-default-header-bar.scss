@@ -1,8 +1,4 @@
 /* 仅仅在bilibili皮肤下显示*/
-.App__navbar--mask {
-  display: none;
-}
-
 .App__navbar--background {
   display: none;
 }
@@ -20,7 +16,6 @@
     border-radius: 0;
     margin-bottom: 0;
     background: rgba(255,255,255,0.4);
-    overflow: hidden;
   }
 
   .App__navbar--container {
@@ -28,7 +23,17 @@
     z-index: 3;
   }
 
-  .App__navbar--mask {
+  .App__navbar--background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: block;
+  }
+
+  .App__navbar--background-mask {
     position: absolute;
     top: 0;
     width: 100%;
@@ -38,7 +43,7 @@
     z-index: 2;
   }
 
-  .App__navbar--background {
+  .App__navbar--background-image {
     position: absolute;
     top: -10px;
     left: -20px;
@@ -50,5 +55,10 @@
     filter:blur(5px);
     display: block;
     z-index: 1;
+  }
+  .dropdown:hover, .dropdown:focus {
+    .dropdown-menu {
+      display: block;
+    }
   }
 }
