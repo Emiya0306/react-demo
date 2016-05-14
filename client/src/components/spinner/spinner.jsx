@@ -9,13 +9,18 @@ class Spinner extends Component {
 
   // 组件静态常量
   static propTypes = {
+    skin: PropTypes.string,
   };
 
   // 页面渲染
   render() {
-    return (
-      <div className={ "" }>
+    const {skin} = this.props;
+    const skinValue = skin || 'default';
 
+    return (
+      <div className={"Spinner " + skinValue}>
+        <div className="Spinner__circle"></div>
+        <div className="Spinner__running"></div>
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import NavgationBar from '../../components/navigationBar/bootstrap-default-header-bar/bootstrap-default-header-bar.jsx'
+import Spinner from '../../components/spinner/spinner.jsx';
 
 export default class Home extends Component {
   static propTypes = {
@@ -11,6 +11,7 @@ export default class Home extends Component {
     return (
       <div>
         Home
+        <Spinner />
       </div>
     );
   }

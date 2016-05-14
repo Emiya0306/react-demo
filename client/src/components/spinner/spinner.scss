@@ -1,0 +1,46 @@
+$Spinner__size: 30px;
+$Spinner__width: 2px;
+$Spinner__circle: rgba(0,0,0,.1);
+$Spinner__running: #767676;
+
+/* Spinner的默认样式 */
+.Spinner{
+  // 基本设置
+  position: relative;
+  * {
+    box-sizing: border-box;
+  }
+}
+
+.Spinner__circle {
+  width: $Spinner__size;
+  height: $Spinner__size;
+  border: $Spinner__width solid $Spinner__circle;
+  border-radius: 50%;
+}
+
+.Spinner__running {
+  position: relative;
+  width: $Spinner__size;
+  height: $Spinner__size;
+  top: -$Spinner__size;
+  border: $Spinner__width solid;
+  border-color: $Spinner__running transparent transparent;
+  border-radius: 50%;
+  animation: Spinner__running 0.6s linear;
+  animation-iteration-count: infinite;
+}
+
+// 动画样式
+@keyframes Spinner__running {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.default {
+
+}
