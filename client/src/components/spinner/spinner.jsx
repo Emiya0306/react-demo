@@ -10,11 +10,12 @@ class Spinner extends Component {
   // 组件静态常量
   static propTypes = {
     skin: PropTypes.string,
+    show: PropTypes.boolean
   };
 
   // 页面渲染
   render() {
-    const {skin} = this.props;
+    const {skin, show} = this.props;
     const skinValue = skin || 'default';
 
     return (
