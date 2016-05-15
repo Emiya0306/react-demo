@@ -28,6 +28,7 @@
     "react": "^15.0.2",
     "react-dom": "^15.0.2",
     "react-router": "^2.4.0",
+    "react-waypoint": "^2.0.2",
     "redux": "^3.5.2",
     "serve-favicon": "^2.0.1"
   },

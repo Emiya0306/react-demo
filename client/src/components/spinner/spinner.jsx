@@ -9,8 +9,7 @@ class Spinner extends Component {
 
   // 组件静态常量
   static propTypes = {
-    skin: PropTypes.string,
-    show: PropTypes.boolean
+    skin: PropTypes.string
   };
 
   // 页面渲染

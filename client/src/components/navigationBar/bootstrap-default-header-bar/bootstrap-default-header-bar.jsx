@@ -17,6 +17,11 @@ class BootstrapDefaultHeaderBar extends Component {
     rightMenus: PropTypes.array
   };
 
+  // 组件被创建时,触发构造器
+  constructor(props) {
+    super(props);
+  }
+
   // 页面渲染
   render() {
     const {skin, logo, leftMenus, rightMenus} = this.props;
@@ -64,6 +69,10 @@ class BootstrapDefaultHeaderBar extends Component {
     return menus.map((menu, key) =>
       <NavItem key={key} skin={this.props.skin} item={menu}/>
     );
+  }
+
+  _fixNavigationBar() {
+
   }
 }
 

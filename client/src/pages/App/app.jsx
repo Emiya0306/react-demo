@@ -6,8 +6,7 @@ import NavigationBar from '../../components/navigationBar/bootstrap-default-head
 
 // 主页面组件 Class App
 class App extends Component {
-  static propTypes = {
-  };
+  static propTypes = {};
 
   // 页面渲染
   render() {
@@ -16,37 +15,38 @@ class App extends Component {
     const styles = require('./app.scss');
 
     // 导航条logo信息
-    const logo = { name:"Home", description:"", link:"/" };
+    const logo = {name: "Home", description: "", link: "/"};
 
     //导航条Home Link下的子菜单
     const homeChildrenMenus = [
-      { name:"About", description:"", link:"/about" },
-      { name:"About", description:"", link:"/about" },
-      { name:"About", description:"", link:"/about" }
+      {name: "About", description: "", link: "/about"},
+      {name: "About", description: "", link: "/about"},
+      {name: "About", description: "", link: "/about"}
     ];
 
     // 导航条左侧菜单按钮
     const leftMenus = [
-      { name:"Home", description:"", link:"/", children: homeChildrenMenus },
-      { name:"About", description:"", link:"/about", children: homeChildrenMenus },
-      { name:"About", description:"", link:"/about" }
+      {name: "Home", description: "", link: "/", children: homeChildrenMenus},
+      {name: "About", description: "", link: "/about", children: homeChildrenMenus},
+      {name: "About", description: "", link: "/about"}
     ];
 
     // 导航条右侧菜单按钮
     const rightMenus = [
-      { name:"Register", description:"", link:"/register" },
-      { name:"Login", description:"", link:"/login" }
+      {name: "Register", description: "", link: "/register"},
+      {name: "Login", description: "", link: "/login"}
     ];
 
     // 页面App渲染
     return (
-      <div>
+      <div className="App__container">
+
         {/* 导航条 */}
-        <NavigationBar skin="bilibili" logo={logo} leftMenus={leftMenus} rightMenus={rightMenus} />
-        <div>
-          {/* 导航条以下页面 */}
-          { this.props.children }
-        </div>
+        <NavigationBar skin="bilibili" logo={logo} leftMenus={leftMenus} rightMenus={rightMenus}/>
+
+        {/* 导航条以下页面 */}
+        { this.props.children }
+
       </div>
     );
   }
