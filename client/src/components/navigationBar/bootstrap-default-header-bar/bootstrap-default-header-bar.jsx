@@ -14,7 +14,8 @@ class BootstrapDefaultHeaderBar extends Component {
     skin: PropTypes.string,
     logo: PropTypes.object,
     leftMenus: PropTypes.array,
-    rightMenus: PropTypes.array
+    rightMenus: PropTypes.array,
+    scrolling: PropTypes.number,
   };
 
   // 组件被创建时,触发构造器
@@ -24,16 +25,35 @@ class BootstrapDefaultHeaderBar extends Component {
 
   // 页面渲染
   render() {
-    const {skin, logo, leftMenus, rightMenus} = this.props;
-    const skinValue = skin || 'default';
+    const skinValue = this.props.skin || 'default';
     return (
-      <nav className={ "navbar App__navbar " + skinValue }>
+      <div className="App__navbar--container">
+        <nav className={ `navbar App__navbar ${skinValue}` }>
+          {this.props.scrolling == 0 ? this._getNavigationBody() : null}
+        </nav>
+        <nav className={ `navbar App__navbar App__navbar--fixed ${skinValue}` }>
+          {this.props.scrolling != 0 ? this._getNavigationBody() : null}
+        </nav>
+      </div>
+    );
+  }
+
+  // 组件公共方法
+  _forEachMenuItem = (menus) => {
+    return menus.map((menu, key) =>
+      <NavItem key={key} skin={this.props.skin} item={menu}/>
+    );
+  };
+
+  _getNavigationBody = () => {
+    return (
+      <div>
         {/* 导航条本体 */}
-        <div className="container App__navbar--container">
+        <div className="container App__navbar--body">
 
           {/* 导航条Logo */}
           <div className="navbar-header">
-            <a className="navbar-brand" href={logo.link}>{logo.name}</a>
+            <a className="navbar-brand" href={this.props.logo.link}>{this.props.logo.name}</a>
           </div>
 
           {/* 导航条菜单按钮主体:在小于视口的时候会消失 */}
@@ -41,12 +61,12 @@ class BootstrapDefaultHeaderBar extends Component {
 
             {/* 导航条左浮按钮 */}
             <ul className="nav navbar-nav">
-              { this._forEachMenuItem(leftMenus) }
+              { this._forEachMenuItem(this.props.leftMenus) }
             </ul>
 
             {/* 导航条右浮按钮 */}
             <ul className="nav navbar-nav navbar-right">
-              { this._forEachMenuItem(rightMenus) }
+              { this._forEachMenuItem(this.props.rightMenus) }
             </ul>
 
           </div>
@@ -60,19 +80,8 @@ class BootstrapDefaultHeaderBar extends Component {
           </div>
           <div className="App__navbar--background-mask"></div>
         </div>
-      </nav>
-    );
-  }
-
-  // 组件公共方法
-  _forEachMenuItem(menus) {
-    return menus.map((menu, key) =>
-      <NavItem key={key} skin={this.props.skin} item={menu}/>
-    );
-  }
-
-  _fixNavigationBar() {
-
+      </div>
+    )
   }
 }
 

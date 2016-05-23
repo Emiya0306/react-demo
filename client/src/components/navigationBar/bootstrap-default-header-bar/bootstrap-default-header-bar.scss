@@ -3,6 +3,10 @@
   display: none;
 }
 
+.App__navbar--container {
+
+}
+
 .default {
   &.App__navbar {
 
@@ -18,7 +22,13 @@
     background: rgba(255,255,255,0.4);
   }
 
-  .App__navbar--container {
+  &.App__navbar--fixed {
+    position: fixed;
+    width: 100%;
+    top: 0;
+  }
+
+  .App__navbar--body {
     position: relative;
     z-index: 3;
   }

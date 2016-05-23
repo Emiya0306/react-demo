@@ -14,7 +14,8 @@ module.exports = {
   ],
   module: {
     loaders: [
-      {test: /\.jsx/, loader: "babel-loader?presets[]=es2015,presets[]=react,presets[]=stage-0"},
+      // es2015允许使用import, stage-0允许使用class static props, transform-decorators-legacy允许使用decorators
+      {test: /\.jsx/, loader: "babel-loader?presets[]=es2015,presets[]=react,presets[]=stage-0,plugins[]=transform-decorators-legacy"},
       {test: /\.json$/, loader: "json-loader"},
       {test: /\.css$/, loader: "style-loader!css-loader"},
       {test: /\.scss$/, loader: "style-loader!css-loader!sass-loader!postcss-loader?browsers=last 2 version"},

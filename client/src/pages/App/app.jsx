@@ -1,12 +1,33 @@
 // 依赖载入
 import React, {Component, PropTypes} from 'react';
+import common from '../../mixins/common.jsx';
 
 // 组件载入
 import NavigationBar from '../../components/navigationBar/bootstrap-default-header-bar/bootstrap-default-header-bar.jsx'
 
+//console.log(common);
+
 // 主页面组件 Class App
+@common
 class App extends Component {
   static propTypes = {};
+
+  // 组件被创建时,触发构造器
+  constructor(props) {
+    super(props);
+    this.state = {scrolling: 0};
+  }
+
+  // 当组件即将被挂载 Note:发生在render之前
+  componentWillMount() {
+  }
+
+  // 当组件即将被挂载 Note:发生在render之后
+  componentDidMount() {
+  }
+
+  componentWillUnmount() {
+  }
 
   // 页面渲染
   render() {
@@ -42,7 +63,8 @@ class App extends Component {
       <div className="App__container">
 
         {/* 导航条 */}
-        <NavigationBar skin="bilibili" logo={logo} leftMenus={leftMenus} rightMenus={rightMenus}/>
+        <NavigationBar skin="bilibili" logo={logo} leftMenus={leftMenus} rightMenus={rightMenus}
+                       scrolling={this.state.scrolling}/>
 
         {/* 导航条以下页面 */}
         { this.props.children }
